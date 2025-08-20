@@ -7,8 +7,8 @@ ENV LC_ALL=ko_KR.UTF-8
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends dbus-x11 locales x11-xserver-utils xfce4 xfce4-goodies xorgxrdp xrdp fonts-noto-cjk ibus ibus-hangul sudo vim net-tools chromium git gnupg2 gnome-software curl && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* && locale-gen $LANG
+RUN apt-get install -y --no-install-recommends dbus-x11 locales x11-xserver-utils xfce4 xfce4-goodies xorgxrdp xrdp fonts-noto-cjk ibus ibus-hangul sudo vim net-tools chromium git gnupg2 gnome-software curl language-pack-ko && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* && locale-gen $LANG && update-locale LANG=$LANG
 
 # install vscode
 RUN curl -L -o vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868
