@@ -14,19 +14,9 @@ RUN apt-get install -y --no-install-recommends dbus-x11 locales x11-xserver-util
 RUN curl -L -o vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868
 RUN apt install ./vscode.deb
 
-RUN echo "xfce4-session" > /etc/skel/.xsession && \
-    echo "export GTK_IM_MODULE=ibus" >> /etc/skel/.xsessionrc && \
-    echo "export XMODIFIERS=@im=ibus" >> /etc/skel/.xsessionrc && \
-    echo "export QT_IM_MODULE=ibus" >> /etc/skel/.xsessionrc
-
 EXPOSE 3389
 
-ENTRYPOINT bash -c ' \
-  adduser --disabled-password --gecos "" user && \
-  NEW_PASS=$(openssl rand -base64 6) && \
-  echo "user:${NEW_PASS}" | chpasswd && \
-  echo "==================================" && \
-  echo "user 계정의 비밀번호가 변경되었습니다." && \
-  echo "새 비밀번호: ${NEW_PASS}" && \
-  echo "==================================" && \
-  /usr/sbin/xrdp-sesman && /usr/sbin/xrdp --nodaemon'
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT /entrypoint.sh
