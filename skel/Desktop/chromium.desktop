@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Chromium 웹 브라우저
+Comment=인터넷에 연결합니다
+Exec=/usr/bin/chromium %U
+Icon=chromium
+Terminal=false
+Type=Application
