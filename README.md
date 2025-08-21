@@ -7,4 +7,3 @@
 - vim
 - git
 - npm + nodejs
-- golang
