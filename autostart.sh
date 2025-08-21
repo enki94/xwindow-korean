@@ -1,3 +1,5 @@
+#!/bin/bash
+
 FIRST_LOGIN_SETUP_FLAG="$HOME/.config/first_login_setup_done"
 
 if [ ! -f "$FIRST_LOGIN_SETUP_FLAG" ]; then
