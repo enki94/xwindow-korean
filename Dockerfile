@@ -33,7 +33,6 @@ RUN chmod +x /entrypoint.sh
 COPY autostart.sh /autostart.sh
 RUN chmod +x /autostart.sh
 
-COPY autostart.desktop /etc/skel/.config/autostart/autostart.desktop
-RUN chmod +x /etc/skel/.config/autostart/autostart.desktop
+COPY skel/ /etc/skel/
 
 ENTRYPOINT /entrypoint.sh
