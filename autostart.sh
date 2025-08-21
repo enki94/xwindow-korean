@@ -13,4 +13,4 @@ if [ ! -f "$FIRST_LOGIN_SETUP_FLAG" ]; then
 fi
 
 # normal start scripts ------------------------------------------------------------------------
-fcitx5
+fcitx5 -d
