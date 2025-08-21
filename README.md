@@ -5,5 +5,7 @@
 - Visual studio code
 - Chromium
 - vim
-- gpg
 - git
+- npm + nodejs
+- golang
+- gnupg2
