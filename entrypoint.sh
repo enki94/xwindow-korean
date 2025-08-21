@@ -6,6 +6,10 @@ export LANG=ko_KR.UTF-8
 export LANGUAGE=ko_KR:ko
 export LC_ALL=ko_KR.UTF-8
 
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+
 # set username
 X11_USER="${X11_USER:-user}"
 if ! id -u $X11_USER >/dev/null 2>&1; then
