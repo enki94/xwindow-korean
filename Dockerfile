@@ -30,5 +30,6 @@ COPY autostart.sh /autostart.sh
 RUN chmod +x /autostart.sh
 
 COPY skel/ /etc/skel/
+RUN find /etc/skel/ -type f -name "*.desktop" -exec chmod 700 {} +
 
 ENTRYPOINT /entrypoint.sh
