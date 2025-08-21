@@ -1,4 +1,4 @@
-FROM debian:bookworm
+FROM debian:trixie
 
 ENV TZ=Asia/Seoul
 ENV LANG=ko_KR.UTF-8
@@ -21,7 +21,7 @@ RUN echo "GTK_IM_MODULE=ibus" >> /etc/environment && \
 
 # no sandbox options
 RUN sed -i 's|^CHROMIUM_FLAGS=""|CHROMIUM_FLAGS="--no-sandbox --start-maximized --disable-gpu"|' /usr/bin/chromium
-
+RUN sed -i 's|ELECTRON_RUN_AS_NODE=1 "\$ELECTRON" "\$CLI" "\$@"|ELECTRON_RUN_AS_NODE=1 "\$ELECTRON" "\$CLI" --no-sandbox --disable-gpu "\$@"|' /usr/bin/code
 
 EXPOSE 3389
 
