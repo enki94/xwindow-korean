@@ -8,4 +8,3 @@
 - git
 - npm + nodejs
 - golang
-- gnupg2
