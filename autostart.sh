@@ -13,10 +13,4 @@ if [ ! -f "$FIRST_LOGIN_SETUP_FLAG" ]; then
 fi
 
 # normal start scripts ------------------------------------------------------------------------
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-
-ibus-daemon -drx
-sleep 5
-ibus engine hangul
+fcitx5
