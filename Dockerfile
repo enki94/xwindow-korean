@@ -28,7 +28,7 @@ EXPOSE 3389
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-COPY ibus-launch.sh /etc/X11/Xsession.d/96ibus-launch
-RUN chmod +x /etc/X11/Xsession.d/96ibus-launch
+COPY first_login_setup.sh /first_login_setup.sh
+RUN chmod +x /first_login_setup.sh
 
 ENTRYPOINT /entrypoint.sh
