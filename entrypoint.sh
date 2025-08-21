@@ -33,6 +33,5 @@ usermod -aG sudo $X11_USER
 [ ! -f /var/run/xrdp/xrdp.pid ] || rm -f /var/run/xrdp/xrdp.pid
 
 # run program
-ibus-daemon -drx
 /usr/sbin/xrdp-sesman
 /usr/sbin/xrdp --nodaemon
