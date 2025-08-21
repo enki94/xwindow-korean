@@ -19,6 +19,10 @@ RUN echo "GTK_IM_MODULE=ibus" >> /etc/environment && \
     echo "QT_IM_MODULE=ibus" >> /etc/environment && \
     echo "XMODIFIERS=@im=ibus" >> /etc/environment
 
+# no sandbox options
+RUN sed -i 's|^CHROMIUM_FLAGS=""|CHROMIUM_FLAGS="--no-sandbox --start-maximized --disable-gpu"|' /usr/bin/chromium
+
+
 EXPOSE 3389
 
 COPY entrypoint.sh /entrypoint.sh
