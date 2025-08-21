@@ -28,6 +28,10 @@ echo "user '$X11_USER' password set."
 # add sudo group
 usermod -aG sudo $X11_USER
 
+# remove pid files
+[ ! -f /var/run/xrdp/xrdp-sesman.pid ] || rm -f /var/run/xrdp/xrdp-sesman.pid
+[ ! -f /var/run/xrdp/xrdp.pid ] || rm -f /var/run/xrdp/xrdp.pid
+
 # run program
 ibus-daemon -drx
 /usr/sbin/xrdp-sesman
