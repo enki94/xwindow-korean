@@ -13,7 +13,7 @@ RUN apt-get install -y --no-install-recommends dbus-x11 locales x11-xserver-util
 # install vscode
 RUN curl -L -o vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868
 RUN apt install ./vscode.deb
-RUN rm -rf ./vscode.deb
+RUN rm -rf ./vscode.deb /etc/apt/sources.list.d/vscode.sources
 
 # no sandbox options
 RUN sed -i 's|^CHROMIUM_FLAGS=""|CHROMIUM_FLAGS="--no-sandbox --start-maximized --disable-gpu"|' /usr/bin/chromium
