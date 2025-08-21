@@ -25,5 +25,6 @@ echo "user '$X11_USER' password set."
 usermod -aG sudo $X11_USER
 
 # run program
+ibus-daemon -drx
 /usr/sbin/xrdp-sesman
 /usr/sbin/xrdp --nodaemon
