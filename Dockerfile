@@ -16,7 +16,7 @@ RUN sed -i 's/^# *ko_KR.UTF-8 UTF-8/ko_KR.UTF-8 UTF-8/' /etc/locale.gen && local
 RUN apt-get install -y --no-install-recommends dbus-x11 x11-xserver-utils xfce4 xfce4-goodies xorgxrdp xrdp ibus ibus-gtk3 fcitx5-hangul fcitx5-config-qt fonts-pretendard sudo nano vim net-tools chromium git curl npm && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # install vscode
-RUN curl -L -o vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868
+RUN curl -q -L -o vscode.deb https://update.code.visualstudio.com/1.103.2/linux-deb-x64/stable
 RUN apt-get install ./vscode.deb
 RUN rm -rf ./vscode.deb /etc/apt/sources.list.d/vscode.sources
 
