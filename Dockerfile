@@ -36,13 +36,13 @@ RUN chmod +x /autostart.sh
 COPY skel/ /etc/skel/
 RUN find /etc/skel/ -type f -name "*.desktop" -exec chmod 700 {} +
 RUN echo "TZ=Asia/Seoul" >> /etc/environment && \
+    echo "LANG=ko_KR.UTF-8" >> /etc/environment && \
+    echo "LANGUAGE=ko_KR:ko" >> /etc/environment && \
+    echo "LC_ALL=ko_KR.UTF-8" >> /etc/environment && \
     echo "GTK_IM_MODULE=fcitx" >> /etc/environment && \
     echo "QT_IM_MODULE=fcitx" >> /etc/environment && \
     echo "QT4_IM_MODULE=fcitx" >> /etc/environment && \
     echo "QT5_IM_MODULE=fcitx" >> /etc/environment && \
-    echo "LANG=ko_KR.UTF-8" >> /etc/environment && \
-    echo "LANGUAGE=ko_KR:ko" >> /etc/environment && \
-    echo "LC_ALL=ko_KR.UTF-8" >> /etc/environment && \
     echo "XMODIFIERS=@im=fcitx" >> /etc/environment
 
 EXPOSE 3389
