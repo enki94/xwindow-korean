@@ -12,7 +12,7 @@ ENV LANGUAGE=ko_KR:ko
 ENV LC_ALL=ko_KR.UTF-8
 RUN sed -i 's/^# *ko_KR.UTF-8 UTF-8/ko_KR.UTF-8 UTF-8/' /etc/locale.gen && locale-gen $LANG && update-locale LANG=$LANG
 
-
+# install modules
 RUN apt-get install -y --no-install-recommends dbus-x11 x11-xserver-utils xfce4 xfce4-goodies xorgxrdp xrdp ibus ibus-gtk3 fcitx5-hangul fcitx5-config-qt fonts-pretendard sudo nano vim net-tools chromium git curl npm && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # install vscode
@@ -26,8 +26,6 @@ RUN rm -rf /usr/bin/code
 RUN ln -s /usr/share/code/bin/code /usr/bin/code
 RUN sed -i 's|ELECTRON_RUN_AS_NODE=1 "\$ELECTRON" "\$CLI" "\$@"|ELECTRON_RUN_AS_NODE=1 "\$ELECTRON" "\$CLI" --no-sandbox --disable-gpu "\$@"|' /usr/share/code/bin/code
 
-EXPOSE 3389
-
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
@@ -36,5 +34,7 @@ RUN chmod +x /autostart.sh
 
 COPY skel/ /etc/skel/
 RUN find /etc/skel/ -type f -name "*.desktop" -exec chmod 700 {} +
+
+EXPOSE 3389
 
 ENTRYPOINT /entrypoint.sh
