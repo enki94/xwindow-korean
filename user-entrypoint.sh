@@ -1,15 +1,19 @@
 #!/bin/bash
 
-FIRST_LOGIN_SETUP_FLAG="$HOME/.config/first_login_setup_done"
+FIRST_LOGIN_SETUP_FLAG="$HOME/.first_login_setup_done"
 
+# first login script
 if [ ! -f "$FIRST_LOGIN_SETUP_FLAG" ]; then
-    mkdir -p "$HOME/.config"
-
-    # first login script ------------------------------------------------------------------------
     
     # 디폴트 브라우져 설정
     xdg-settings set default-web-browser chromium.desktop
-    
+
+    # fcitx5 설정 복사
+    cp /var/initial-resource/.config ~ -R
+
+    # .desktop 파일 복사
+    cp /var/initial-resource/Desktop/*.desktop ~/Desktop/
+
     # Desktop/*.desktop 반복 처리
     for FILE in ~/Desktop/*.desktop; do
         # 1. 실행 권한 부여
@@ -19,11 +23,10 @@ if [ ! -f "$FIRST_LOGIN_SETUP_FLAG" ]; then
         if command -v gio >/dev/null 2>&1; then
             SHA256=$(sha256sum "$FILE" | awk '{print $1}')
             gio set "$FILE" metadata::xfce-exe-checksum "$SHA256"
+            chmod 700 "$FILE"
         fi
     done
     
-    # first login script ------------------------------------------------------------------------
-
     touch "$FIRST_LOGIN_SETUP_FLAG"
 fi
 

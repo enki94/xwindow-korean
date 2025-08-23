@@ -33,11 +33,10 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 COPY user-entrypoint.sh /etc/X11/Xsession.d/97user-entrypoint.sh
-# RUN chmod +x /etc/X11/Xsession.d/97user-entrypoint.sh
+
+COPY initial-resource/ /var/initial-resource/
 
 # startup profile
-COPY skel/ /etc/skel/
-RUN find /etc/skel/ -type f -name "*.desktop" -exec chmod 700 {} +
 RUN echo "TZ=Asia/Seoul" >> /etc/environment && \
     echo "LANG=ko_KR.UTF-8" >> /etc/environment && \
     echo "LANGUAGE=ko_KR:ko" >> /etc/environment && \
