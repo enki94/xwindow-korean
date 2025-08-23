@@ -10,6 +10,7 @@ if [ ! -f "$FIRST_LOGIN_SETUP_FLAG" ]; then
     cp /var/initial-resource/.config ~ -R
 
     # .desktop 파일 복사
+    mkdir -p ~/바탕화면
     cp /var/initial-resource/Desktop/*.desktop ~/바탕화면/
 
     # Desktop/*.desktop 반복 처리
