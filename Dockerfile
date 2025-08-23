@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 
 # locale gen
-RUN apt-get install -y --no-install-recommends locales
+RUN apt-get install -y locales
 ENV TZ=Asia/Seoul
 ENV LANG=ko_KR.UTF-8
 ENV LANGUAGE=ko_KR:ko
@@ -13,8 +13,8 @@ ENV LC_ALL=ko_KR.UTF-8
 RUN sed -i 's/^# *ko_KR.UTF-8 UTF-8/ko_KR.UTF-8 UTF-8/' /etc/locale.gen && locale-gen $LANG && update-locale LANG=$LANG
 
 # install modules
-RUN apt-get install -y --no-install-recommends dbus-x11 x11-xserver-utils xfce4 xfce4-goodies xorgxrdp xrdp \
-    ibus ibus-gtk3 fcitx5-hangul fcitx5-config-qt fcitx5-frontend-gtk3 fcitx5-frontend-gtk4 fcitx5-frontend-qt5 fonts-pretendard \
+RUN apt-get install -y dbus-x11 x11-xserver-utils xfce4 xfce4-goodies xorgxrdp xrdp \
+    ibus ibus-gtk3 fcitx5-hangul fcitx5-config-qt fcitx5-frontend-gtk3 fcitx5-frontend-gtk4 fcitx5-frontend-qt5 fonts-noto-cjk \
     sudo nano vim net-tools chromium git curl npm \ 
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
