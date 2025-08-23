@@ -21,6 +21,10 @@ fi
 echo "$X11_USER:$X11_PASSWORD" | chpasswd  
 echo "user '$X11_USER' password set."
 
+# change own and permission
+chown $X11_USER:$X11_USER /home/$X11_USER
+chmod 700 /home/$X11_USER   
+
 # add sudo group
 usermod -aG sudo $X11_USER
 
