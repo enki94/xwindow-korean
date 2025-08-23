@@ -10,7 +10,7 @@ debian 13 (trixie) base 한글 XWINDOW(wayland) docker
 
 # 사용법
 - docker 3389 port 열어서 띄우시면 됩니다. 그 후 윈도우 원격 데스크탑(3389포트)으로 해당 컨테이너 접속.
-- 사용자명을 지정하고 싶은 경우, docker env 에다가 X11_USER=(사용자명), X11_PASSWORD=(패스워드) 를 입력하시면 됩니다.
+- 사용자명을 지정하고 싶은 경우, docker env 에다가 XWINDOW_USER=(사용자명), XWINDOW_PASSWORD=(패스워드) 를 입력하시면 됩니다.
 - 만약 입력안하시는 경우 사용자명은 'user', 패스워드는 임의로 생성되며, 패스워드는 docker logs 에 표시됩니다.
 
 # 사용자 데이터 및 볼륨 유지

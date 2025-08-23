@@ -7,26 +7,26 @@ export LANGUAGE=ko_KR:ko
 export LC_ALL=ko_KR.UTF-8
 
 # set username
-X11_USER="${X11_USER:-user}"
-if ! id -u $X11_USER >/dev/null 2>&1; then
-    useradd -m -s /bin/bash $X11_USER
-    echo "user '$X11_USER' generated."
+XWINDOW_USER="${XWINDOW_USER:-user}"
+if ! id -u $XWINDOW_USER >/dev/null 2>&1; then
+    useradd -m -s /bin/bash $XWINDOW_USER
+    echo "user '$XWINDOW_USER' generated."
 fi
 
 # set password
-if [ -z "$X11_PASSWORD" ]; then
-    X11_PASSWORD=$(tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 8)
-    echo "$X11_USER's generated password: $X11_PASSWORD"
+if [ -z "$XWINDOW_PASSWORD" ]; then
+    XWINDOW_PASSWORD=$(tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 8)
+    echo "$XWINDOW_USER's generated password: $XWINDOW_PASSWORD"
 fi
-echo "$X11_USER:$X11_PASSWORD" | chpasswd  
-echo "user '$X11_USER' password set."
+echo "$XWINDOW_USER:$XWINDOW_PASSWORD" | chpasswd  
+echo "user '$XWINDOW_USER' password set."
 
 # change own and permission
-chown $X11_USER:$X11_USER /home/$X11_USER
-chmod 700 /home/$X11_USER   
+chown $XWINDOW_USER:$XWINDOW_USER /home/$XWINDOW_USER
+chmod 700 /home/$XWINDOW_USER   
 
 # add sudo group
-usermod -aG sudo $X11_USER
+usermod -aG sudo $XWINDOW_USER
 
 # remove pid files
 [ ! -f /var/run/xrdp/xrdp-sesman.pid ] || rm -f /var/run/xrdp/xrdp-sesman.pid
