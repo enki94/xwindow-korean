@@ -32,7 +32,7 @@ RUN sed -i 's|ELECTRON_RUN_AS_NODE=1 "\$ELECTRON" "\$CLI" "\$@"|ELECTRON_RUN_AS_
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-COPY user-entrypoint.sh /etc/X11/Xsession.d/97user-entrypoint.sh
+COPY user-entrypoint.sh /etc/X11/Xsession.d/97user-entrypoint
 
 COPY initial-resource/ /var/initial-resource/
 
