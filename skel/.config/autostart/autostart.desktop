@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Initial Login Setup
-Comment=Run default script on first login
-Exec=/bin/bash /autostart.sh
-Terminal=false
-X-GNOME-Autostart-enabled=true
