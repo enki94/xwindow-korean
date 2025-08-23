@@ -1,5 +1,3 @@
-#!/bin/bash
-
 FIRST_LOGIN_SETUP_FLAG="$HOME/.first_login_setup_done"
 
 # first login script
@@ -12,10 +10,10 @@ if [ ! -f "$FIRST_LOGIN_SETUP_FLAG" ]; then
     cp /var/initial-resource/.config ~ -R
 
     # .desktop 파일 복사
-    cp /var/initial-resource/Desktop/*.desktop ~/Desktop/
+    cp /var/initial-resource/Desktop/*.desktop ~/바탕화면/
 
     # Desktop/*.desktop 반복 처리
-    for FILE in ~/Desktop/*.desktop; do
+    for FILE in ~/바탕화면/*.desktop; do
         # 1. 실행 권한 부여
         chmod +x "$FILE"
     
