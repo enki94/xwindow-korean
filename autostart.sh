@@ -11,7 +11,7 @@ if [ ! -f "$FIRST_LOGIN_SETUP_FLAG" ]; then
     xdg-settings set default-web-browser chromium.desktop
     
     # Desktop/*.desktop 반복 처리
-    for FILE in ~/*.desktop; do
+    for FILE in ~/Desktop/*.desktop; do
         # 1. 실행 권한 부여
         chmod +x "$FILE"
     
