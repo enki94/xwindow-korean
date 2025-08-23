@@ -1,5 +1,5 @@
 # 설명
-debian 13 (trixie) base 한글 XWINDOW(wayland) docker
+경량 debian 13 (trixie) base 한글 XWINDOW(wayland) docker
 
 # 설치된 프로그램
 - Visual studio code
