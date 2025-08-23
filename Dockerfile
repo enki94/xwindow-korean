@@ -19,9 +19,9 @@ RUN apt-get install -y dbus-x11 x11-xserver-utils xfce4 xfce4-goodies xorgxrdp x
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # install vscode
-RUN curl -q -L -o vscode.deb https://update.code.visualstudio.com/1.103.2/linux-deb-x64/stable
-RUN apt-get install ./vscode.deb
-RUN rm -rf ./vscode.deb /etc/apt/sources.list.d/vscode.sources
+RUN curl -q -L -o vscode.deb https://update.code.visualstudio.com/1.103.2/linux-deb-x64/stable \
+    && apt-get install ./vscode.deb \
+    && rm -rf ./vscode.deb /etc/apt/sources.list.d/vscode.sources
 
 # no sandbox options
 RUN sed -i 's|^CHROMIUM_FLAGS=""|CHROMIUM_FLAGS="--no-sandbox --start-maximized --disable-gpu"|' /usr/bin/chromium
