@@ -13,5 +13,8 @@ if [ ! -f "$FIRST_LOGIN_SETUP_FLAG" ]; then
 fi
 
 # normal start scripts ------------------------------------------------------------------------
-xmodmap -e "keycode 122 = Hangul"
 fcitx5 -d
+sleep 5
+xmodmap -e "keycode 121 = Hangul_Hanja"
+xmodmap -e "keycode 122 = Hangul"
+xmodmap -e "keycode 123 = Hangul_Hanja"
