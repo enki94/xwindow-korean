@@ -35,5 +35,5 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            lancard/x11-korean:latest
-            lancard/x11-korean:${{ github.event.inputs.version }}
+            lancard/xwindow-korean:latest
+            lancard/xwindow-korean:${{ github.event.inputs.version }}
