@@ -1,5 +1,5 @@
 # 설명
-경량 debian 13 (trixie) base 한글 XWINDOW(wayland) docker
+RDP(리모트 데스크탑) 지원하는 경량 debian 13 (trixie) base 한글 XWINDOW(wayland) docker
 
 # 설치된 프로그램
 - Visual studio code
