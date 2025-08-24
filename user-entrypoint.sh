@@ -31,7 +31,4 @@ fi
 
 # normal start scripts ------------------------------------------------------------------------
 fcitx5 -d
-sleep 5
-xmodmap -e "keycode 121 = Hangul_Hanja"
-xmodmap -e "keycode 122 = Hangul"
-xmodmap -e "keycode 123 = Hangul_Hanja"
+(sleep 5; xmodmap -e "keycode 121 = Hangul_Hanja"; xmodmap -e "keycode 122 = Hangul"; xmodmap -e "keycode 123 = Hangul_Hanja";) &
