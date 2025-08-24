@@ -1,3 +1,8 @@
+![Repo Size](https://img.shields.io/github/repo-size/lancard/xwindow-korean)
+![File Count](https://img.shields.io/github/directory-file-count/lancard/xwindow-korean)
+![Docker Pulls](https://img.shields.io/docker/pulls/lancard/xwindow-korean)
+![Docker Image Size](https://img.shields.io/docker/image-size/lancard/xwindow-korean)
+
 # 설명
 RDP(리모트 데스크탑) 지원하는 경량 debian 13 (trixie) base 한글 XWINDOW(wayland) docker
 
