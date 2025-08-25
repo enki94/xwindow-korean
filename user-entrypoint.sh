@@ -30,5 +30,5 @@ if [ ! -f "$FIRST_LOGIN_SETUP_FLAG" ]; then
 fi
 
 # normal start scripts ------------------------------------------------------------------------
-setxkbmap -rules base -model pc105 -layout kr -variant kr106 -option korean:ralt_hangul -option korean:rctrl_hanja
 fcitx5 -d
+(sleep 5; setxkbmap -rules base -model pc105 -layout kr -variant kr106 -option korean:ralt_hangul -option korean:rctrl_hanja;) &
