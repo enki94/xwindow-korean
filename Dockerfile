@@ -36,6 +36,9 @@ COPY user-entrypoint.sh /etc/X11/Xsession.d/97user-entrypoint
 
 COPY initial-resource/ /var/initial-resource/
 
+COPY km-e0010412.ini /etc/xrdp/km-e0010412.ini
+RUN chmod 644 /etc/xrdp/km-e0010412.ini
+
 # startup profile
 RUN echo "TZ=Asia/Seoul" >> /etc/environment && \
     echo "LANG=ko_KR.UTF-8" >> /etc/environment && \
