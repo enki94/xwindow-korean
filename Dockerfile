@@ -37,8 +37,8 @@ COPY user-entrypoint.sh /etc/X11/Xsession.d/97user-entrypoint
 COPY initial-resource/ /var/initial-resource/
 
 # korean keycode correction
-RUN sed -i 's/<HNGL> = 209;/<HNGL> = 122;/g' /usr/share/X11/xkb/keycodes/xfree86
-RUN sed -i 's/<HJCV> = 210;/<HJCV> = 121;/g' /usr/share/X11/xkb/keycodes/xfree86
+RUN sed -i 's/<HNGL> =  209;/<HNGL> =  122;/g' /usr/share/X11/xkb/keycodes/xfree86
+RUN sed -i 's/<HJCV> =  210;/<HJCV> =  121;/g' /usr/share/X11/xkb/keycodes/xfree86
 
 # korea keyboard layout for xrdp
 COPY km-e0010412.ini /etc/xrdp/km-e0010412.ini
