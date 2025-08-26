@@ -23,12 +23,6 @@ RUN curl -q -L -o vscode.deb https://update.code.visualstudio.com/1.103.2/linux-
     && apt-get install ./vscode.deb \
     && rm -rf ./vscode.deb /etc/apt/sources.list.d/vscode.sources
 
-# no sandbox options
-RUN sed -i 's|^CHROMIUM_FLAGS=""|CHROMIUM_FLAGS="--no-sandbox --start-maximized --disable-gpu"|' /usr/bin/chromium
-RUN rm -rf /usr/bin/code
-RUN ln -s /usr/share/code/bin/code /usr/bin/code
-RUN sed -i 's|ELECTRON_RUN_AS_NODE=1 "\$ELECTRON" "\$CLI" "\$@"|ELECTRON_RUN_AS_NODE=1 "\$ELECTRON" "\$CLI" --no-sandbox --disable-gpu "\$@"|' /usr/share/code/bin/code
-
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
