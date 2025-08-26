@@ -29,5 +29,5 @@ RDP(리모트 데스크탑) 지원하는 경량 debian 13 (trixie) base 한글 X
 sudo su 하셔서 루트 권한으로 adduser 하시면 됩니다.
 
 # 주의사항
-- privileged mode 가 아닌 경우 vscode 나 chromium 이 no-sandbox 모드에서 실행됩니다. 참고하십시오.
+- privileged mode 가 아닌 경우 vscode 나 chromium 이 no-sandbox 모드에서 실행됩니다. 참고하십시오. (그렇다고 privileged mode 를 권장하는 것은 아닙니다. privileged mode 를 켜지 않는 것이 보안성이 좋습니다)
 - sound 관련이 충돌이 많고 버그가 많아 포함시키지 않았습니다. 테스트 결과 설치하더라도 끊기거나 안정적이지 않습니다. 게다가 설치 용량도 너무 커지는 관계로 제외하였습니다.
