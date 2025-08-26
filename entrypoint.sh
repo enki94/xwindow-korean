@@ -33,6 +33,7 @@ usermod -aG sudo $XWINDOW_USER
 [ ! -f /var/run/xrdp/xrdp.pid ] || rm -f /var/run/xrdp/xrdp.pid
 
 # check sandbox mode
+set +e
 SANDBOX_CHECK_OUTPUT=$(unshare -U true 2>&1)
 SANDBOX_CHECK_EXIT_CODE=$?
 if [ "$SANDBOX_CHECK_EXIT_CODE" -ne 0 ]; then
@@ -41,6 +42,7 @@ if [ "$SANDBOX_CHECK_EXIT_CODE" -ne 0 ]; then
     ln -s /usr/share/code/bin/code /usr/bin/code
     sed -i 's|ELECTRON_RUN_AS_NODE=1 "\$ELECTRON" "\$CLI" "\$@"|ELECTRON_RUN_AS_NODE=1 "\$ELECTRON" "\$CLI" --no-sandbox --disable-gpu "\$@"|' /usr/share/code/bin/code
 fi
+set -e
 
 # run program
 /usr/sbin/xrdp-sesman
