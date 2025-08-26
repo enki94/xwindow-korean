@@ -32,6 +32,16 @@ usermod -aG sudo $XWINDOW_USER
 [ ! -f /var/run/xrdp/xrdp-sesman.pid ] || rm -f /var/run/xrdp/xrdp-sesman.pid
 [ ! -f /var/run/xrdp/xrdp.pid ] || rm -f /var/run/xrdp/xrdp.pid
 
+# check sandbox mode
+SANDBOX_CHECK_OUTPUT=$(unshare -U true 2>&1)
+SANDBOX_CHECK_EXIT_CODE=$?
+if [ "$SANDBOX_CHECK_EXIT_CODE" -ne 0 ]; then
+    sed -i 's|^CHROMIUM_FLAGS=""|CHROMIUM_FLAGS="--no-sandbox --start-maximized --disable-gpu"|' /usr/bin/chromium
+    rm -rf /usr/bin/code
+    ln -s /usr/share/code/bin/code /usr/bin/code
+    sed -i 's|ELECTRON_RUN_AS_NODE=1 "\$ELECTRON" "\$CLI" "\$@"|ELECTRON_RUN_AS_NODE=1 "\$ELECTRON" "\$CLI" --no-sandbox --disable-gpu "\$@"|' /usr/share/code/bin/code
+fi
+
 # run program
 /usr/sbin/xrdp-sesman
 /usr/sbin/xrdp --nodaemon
