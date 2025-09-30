@@ -2,9 +2,11 @@ FROM debian:trixie
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update
+# add contrib non-free components
+RUN sed -i 's/Components: main$/Components: main contrib non-free/' /etc/apt/sources.list.d/*.sources
 
 # locale gen
+RUN apt-get update
 RUN apt-get install -y locales
 ENV TZ=Asia/Seoul
 ENV LANG=ko_KR.UTF-8
